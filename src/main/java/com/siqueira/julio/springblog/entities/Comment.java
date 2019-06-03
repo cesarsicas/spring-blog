@@ -11,11 +11,6 @@ import java.time.LocalDate;
 public class Comment extends  AbstractEntity<Long> {
 
     @NotNull
-    @Size(min = 5, max = 100)
-    String title;
-
-
-    @NotNull
     @Column(columnDefinition="LONGTEXT")
     String content;
 
@@ -25,14 +20,6 @@ public class Comment extends  AbstractEntity<Long> {
     LocalDate publishDate;
 
     Long postId;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getContent() {
         return content;

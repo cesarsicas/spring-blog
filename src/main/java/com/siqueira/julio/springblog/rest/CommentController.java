@@ -1,28 +1,28 @@
 package com.siqueira.julio.springblog.rest;
 
-import com.siqueira.julio.springblog.entities.Post;
-import com.siqueira.julio.springblog.service.PostService;
+import com.siqueira.julio.springblog.entities.Comment;
+import com.siqueira.julio.springblog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("posts")
-public class PostController {
+@RequestMapping("comments")
+public class CommentController {
 
     @Autowired
-    PostService service;
+    CommentService service;
 
     @PostMapping("/new")
-    public ResponseEntity create(@RequestBody Post post) {
-        service.save(post);
-        return ResponseEntity.ok(post);
+    public ResponseEntity create(@RequestBody Comment comment) {
+        service.save(comment);
+        return ResponseEntity.ok(comment);
 
     }
 
     @PostMapping("/edit")
-    public ResponseEntity update(@RequestBody Post post) {
+    public ResponseEntity update(@RequestBody Comment post) {
         return ResponseEntity.ok(post);
     }
 
@@ -36,4 +36,5 @@ public class PostController {
     public ResponseEntity find(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
+
 }
