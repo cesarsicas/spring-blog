@@ -8,31 +8,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("posts")
 public class PostController {
 
     @Autowired
     PostService service;
 
-    @PostMapping("/new")
+    @PostMapping("/posts/new")
     public ResponseEntity create(@RequestBody Post post) {
         service.save(post);
         return ResponseEntity.ok(post);
 
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/posts/edit")
     public ResponseEntity update(@RequestBody Post post) {
         return ResponseEntity.ok(post);
     }
 
-    @GetMapping("/list")
+    @GetMapping("/posts/list")
     public ResponseEntity list() {
         return ResponseEntity.ok(service.findAll());
     }
 
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/posts/{id}")
     public ResponseEntity find(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }

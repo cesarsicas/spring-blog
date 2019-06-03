@@ -1,27 +1,30 @@
 package com.siqueira.julio.springblog.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-    @Table(name = "comments")
-public class Comment extends  AbstractEntity<Long> {
+@Table(name = "comments")
+public class Comment extends AbstractEntity<Long> {
 
     @NotNull
-    @Column(columnDefinition="LONGTEXT")
-    private  String content;
+    @Column(columnDefinition = "LONGTEXT")
+    private String content;
 
     @NotNull
     @Size(min = 5, max = 100)
     private String author;
 
-    private  LocalDate publishDate;
+    private LocalDate publishDate;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "post_id", referencedColumnName = "id", nullable = false)
     private Post post;
 
     public String getContent() {
