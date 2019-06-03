@@ -14,6 +14,8 @@ public class TestController {
     public ResponseEntity<Fruit> home(){
 
         Fruit fruit = new Fruit();
+        fruit.setName("This API");
+        fruit.setDescription("Is Working");
 
         return new ResponseEntity<Fruit>(fruit, HttpStatus.OK);
     }
