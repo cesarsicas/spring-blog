@@ -2,25 +2,31 @@ package com.siqueira.julio.springblog.entities;
 
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
 public class Post  extends  AbstractEntity<Long>{
     @NotNull
     @Size(min = 5, max = 100)
-    String title;
+    private String title;
 
 
     @NotNull
     @Size(min = 5)
-    String content;
+    private  String content;
 
-    LocalDate publishDate;
-    LocalDate editDate;
+    private LocalDate publishDate;
+
+    private LocalDate editDate;
+
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
 
     public String getTitle() {
         return title;
@@ -52,5 +58,13 @@ public class Post  extends  AbstractEntity<Long>{
 
     public void setEditDate(LocalDate editDate) {
         this.editDate = editDate;
+    }
+
+    public List<Comment> getComment() {
+        return comments;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comments = comment;
     }
 }

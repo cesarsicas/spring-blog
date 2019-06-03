@@ -7,19 +7,22 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "comments")
+    @Table(name = "comments")
 public class Comment extends  AbstractEntity<Long> {
 
     @NotNull
     @Column(columnDefinition="LONGTEXT")
-    String content;
+    private  String content;
 
     @NotNull
     @Size(min = 5, max = 100)
-    String author;
-    LocalDate publishDate;
+    private String author;
 
-    Long postId;
+    private  LocalDate publishDate;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
 
     public String getContent() {
         return content;
@@ -29,13 +32,6 @@ public class Comment extends  AbstractEntity<Long> {
         this.content = content;
     }
 
-    public Long getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Long postId) {
-        this.postId = postId;
-    }
 
     public String getAuthor() {
         return author;
@@ -51,5 +47,13 @@ public class Comment extends  AbstractEntity<Long> {
 
     public void setPublishDate(LocalDate publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
 }
