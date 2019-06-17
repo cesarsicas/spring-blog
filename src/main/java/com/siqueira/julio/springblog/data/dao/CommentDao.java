@@ -1,6 +1,6 @@
-package com.siqueira.julio.springblog.dao;
+package com.siqueira.julio.springblog.data.dao;
 
-import com.siqueira.julio.springblog.entities.Comment;
+import com.siqueira.julio.springblog.data.entities.Comment;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package com.siqueira.julio.springblog.rest;
+package com.siqueira.julio.springblog.presentation.site;
 
-import com.siqueira.julio.springblog.entities.Comment;
-import com.siqueira.julio.springblog.entities.Post;
-import com.siqueira.julio.springblog.service.CommentService;
-import com.siqueira.julio.springblog.service.PostService;
+import com.siqueira.julio.springblog.data.entities.Comment;
+import com.siqueira.julio.springblog.data.entities.Post;
+import com.siqueira.julio.springblog.data.service.CommentService;
+import com.siqueira.julio.springblog.data.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @Controller
-public class CommentController {
+public class SiteCommentController {
 
     @Autowired
     CommentService commentService;

@@ -1,4 +1,4 @@
-package com.siqueira.julio.springblog.entities;
+package com.siqueira.julio.springblog.data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;

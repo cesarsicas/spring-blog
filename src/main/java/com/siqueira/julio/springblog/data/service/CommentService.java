@@ -1,7 +1,6 @@
-package com.siqueira.julio.springblog.service;
+package com.siqueira.julio.springblog.data.service;
 
-import com.siqueira.julio.springblog.entities.Comment;
-import com.siqueira.julio.springblog.entities.Post;
+import com.siqueira.julio.springblog.data.entities.Comment;
 
 import java.util.List;
 

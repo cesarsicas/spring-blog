@@ -1,10 +1,10 @@
-package com.siqueira.julio.springblog.dao;
+package com.siqueira.julio.springblog.data.service;
 
-import com.siqueira.julio.springblog.entities.Post;
+import com.siqueira.julio.springblog.data.entities.Post;
 
 import java.util.List;
 
-public interface PostDao {
+public interface PostService {
     void save(Post post);
 
     void update(Post post);

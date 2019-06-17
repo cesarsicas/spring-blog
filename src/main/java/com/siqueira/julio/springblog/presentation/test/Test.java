@@ -1,6 +1,6 @@
-package com.siqueira.julio.springblog.test;
+package com.siqueira.julio.springblog.presentation.test;
 
-public class Fruit {
+public class Test {
     String name;
     String description;
 

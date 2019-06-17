@@ -1,7 +1,7 @@
-package com.siqueira.julio.springblog.service;
+package com.siqueira.julio.springblog.data.service;
 
-import com.siqueira.julio.springblog.dao.CommentDao;
-import com.siqueira.julio.springblog.entities.Comment;
+import com.siqueira.julio.springblog.data.dao.CommentDao;
+import com.siqueira.julio.springblog.data.entities.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
