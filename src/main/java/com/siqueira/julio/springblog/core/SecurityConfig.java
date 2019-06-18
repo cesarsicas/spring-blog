@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //super.configure(http);
-        http.authorizeRequests().antMatchers("/posts/**").permitAll();
+        //http.authorizeRequests().anyRequest().permitAll();
+        http.authorizeRequests().antMatchers("/posts/**").permitAll().anyRequest().authenticated();
     }
 }
