@@ -1,7 +1,6 @@
 package com.siqueira.julio.springblog.presentation.site;
 
-import com.siqueira.julio.springblog.data.entities.Post;
-import com.siqueira.julio.springblog.data.service.PostService;
+import com.siqueira.julio.springblog.domain.service.SitePostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,25 +11,12 @@ import org.springframework.web.bind.annotation.*;
 public class SitePostController {
 
     @Autowired
-    PostService service;
-
-    @PostMapping("/posts/new")
-    public ResponseEntity create(@RequestBody Post post) {
-        service.save(post);
-        return ResponseEntity.ok(post);
-
-    }
-
-    @PostMapping("/posts/edit")
-    public ResponseEntity update(@RequestBody Post post) {
-        return ResponseEntity.ok(post);
-    }
+    SitePostService service;
 
     @GetMapping("/posts/list")
     public ResponseEntity list() {
         return ResponseEntity.ok(service.findAll());
     }
-
 
     @GetMapping("/posts/{id}")
     public ResponseEntity find(@PathVariable Long id) {

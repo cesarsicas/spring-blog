@@ -2,8 +2,8 @@ package com.siqueira.julio.springblog.presentation.site;
 
 import com.siqueira.julio.springblog.data.entities.Comment;
 import com.siqueira.julio.springblog.data.entities.Post;
-import com.siqueira.julio.springblog.data.service.CommentService;
-import com.siqueira.julio.springblog.data.service.PostService;
+import com.siqueira.julio.springblog.domain.service.SiteCommentService;
+import com.siqueira.julio.springblog.domain.service.SitePostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,46 +14,22 @@ import org.springframework.web.bind.annotation.*;
 public class SiteCommentController {
 
     @Autowired
-    CommentService commentService;
+    SiteCommentService siteCommentService;
 
     @Autowired
-    PostService postService;
-
-    @GetMapping("/posts/comments/{id}")
-    public ResponseEntity find(@PathVariable Long id) {
-        return ResponseEntity.ok(commentService.findById(id));
-    }
+    SitePostService sitePostService;
 
     @GetMapping("/posts/comments/list")
     public ResponseEntity list() {
-        return ResponseEntity.ok(commentService.findAll());
+        return ResponseEntity.ok(siteCommentService.findAll());
 
     }
-
-//todo
-//    @GetMapping("/posts/{postId}/comments/list")
-//    public ResponseEntity listByPostId(@PathVariable String postId) {
-//        return ResponseEntity.ok(commentService.findAll());
-//    }
 
     @PostMapping("/posts/{postId}/comments")
     public ResponseEntity create(@RequestBody Comment comment, @PathVariable Long postId) {
-        Post post = postService.findById(postId);
+        Post post = sitePostService.findById(postId);
         comment.setPost(post);
-        commentService.save(comment);
-        return ResponseEntity.ok(comment);
-
-    }
-
-    @PutMapping("/posts/{postId}/comments")
-    public ResponseEntity update(@RequestBody Comment comment, @PathVariable String postId) {
-        commentService.update(comment);
+        siteCommentService.save(comment);
         return ResponseEntity.ok(comment);
     }
-
-
-
-
-
-
 }

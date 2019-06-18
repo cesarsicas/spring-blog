@@ -1,7 +1,8 @@
-package com.siqueira.julio.springblog.data.service;
+package com.siqueira.julio.springblog.domain.serviceimpl;
 
 import com.siqueira.julio.springblog.data.dao.CommentDao;
 import com.siqueira.julio.springblog.data.entities.Comment;
+import com.siqueira.julio.springblog.domain.service.SiteCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service @Transactional(readOnly = false)
-public class CommentServiceImpl implements CommentService{
+public class SiteCommentServiceImpl implements SiteCommentService {
 
     @Autowired
     private CommentDao dao;
@@ -17,21 +18,6 @@ public class CommentServiceImpl implements CommentService{
     @Override
     public void save(Comment comment) {
         dao.save(comment);
-    }
-
-    @Override
-    public void update(Comment comment) {
-        dao.update(comment);
-    }
-
-    @Override
-    public void delete(Long id) {
-        dao.delete(id);
-    }
-
-    @Override @Transactional(readOnly = true)
-    public Comment findById(Long id) {
-        return  dao.findById(id);
     }
 
     @Override @Transactional(readOnly = true)
