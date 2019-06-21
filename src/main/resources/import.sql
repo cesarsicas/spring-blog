@@ -12,4 +12,4 @@ INSERT INTO comments(author, content, post_id) VALUES ('Raj','Wow love it!, frie
 INSERT INTO comments(author, content, post_id) VALUES ('Travis','Mission accomplished. Its incredible.',2);
 INSERT INTO comments(author, content, post_id) VALUES ('Ozzy','My 22 year old son rates this spaces very sublime, friend.',3);
 
-INSERT INTO users(active, email, password, verifier_code) VALUES (1,'teste@teste.com', '$2y$12$1J00EV8D4pcsCbgsnlGHEOV2Xn4ZuUpXSh8Ufe9uPL3cFRePffEoe','123456' );
+INSERT INTO users(active, email, password, verifier_code) VALUES (1,'teste@teste.com', '$2a$10$QucZzGEuPznCI0YBIjitZeda4wWyiARqKrOWFqzidz4VSRRTLADve','123456' );

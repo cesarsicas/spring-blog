@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserDetailsService {
 
 
 
-    @Override
+    @Override @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         SystemUser user = searchByEmail(username);
 
@@ -39,12 +39,15 @@ public class UserServiceImpl implements UserDetailsService {
         return dao.findByEmail(email);
     }
 
-    private String[] getAuthorities(List<Role> perfis) {
-        String[] authorities = new String[perfis.size()];
-        for (int i = 0; i < perfis.size(); i++) {
-            authorities[i] = perfis.get(i).getDesc();
-        }
-        return authorities;
+    private String[] getAuthorities(List<Role> roles) {
+        String[] authorities = {"admin", "editor", "author"};
+        return  authorities;
+
+//        String[] authorities = new String[roles.size()];
+//        for (int i = 0; i < roles.size(); i++) {
+//            authorities[i] = roles.get(i).getDesc();
+//        }
+//        return authorities;
     }
 }
 
