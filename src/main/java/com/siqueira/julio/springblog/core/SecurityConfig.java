@@ -13,31 +13,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserServiceImpl service;
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //http.authorizeRequests().anyRequest().permitAll();
 
         http
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginProcessingUrl("/login")
-                .permitAll();
-
-//        http.authorizeRequests()
-//                .antMatchers("/posts/**").permitAll()
-//                .antMatchers("/").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .permitAll();  ;
+            .httpBasic()  //basic authentication
+            .and()
+            .authorizeRequests()
+            .antMatchers("/admin/**").authenticated()
+            .and()
+            .formLogin()
+            .disable();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(service).passwordEncoder(new BCryptPasswordEncoder());
+
+//        auth.inMemoryAuthentication()
+//                .withUser("teste@teste.com").password("{noop}teste").roles("USER")
+//                .and()
+//                .withUser("admin").password("{noop}password").roles("USER", "ADMIN");
     }
 
 
