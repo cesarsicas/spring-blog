@@ -4,9 +4,12 @@ INSERT INTO posts(content,title) VALUES ('Ministério das Finanças disse que va
 INSERT INTO posts(content,title) VALUES ('Uma briga entre facções no Centro de Recuperação de Redenção, sudeste do Pará, deixou três mortos e três feridos na manhã deste domingo (12) Diário da Amazônia','Presos se rebelam, esquartejam e queimam rivais');
 INSERT INTO posts(content,title) VALUES ('A União Nacional dos Juízes Federais do Brasil, que representa magistrados de primeira instância da Justiça Federal, apontou inconstitucionalidade na .. O Antagonista','Juízes apontam inconstitucionalidade na votação que tirou Coaf de Moro');
 INSERT INTO posts(content,title) VALUES ('O cartão Bradesco Neo Visa Internacional oferece possibilidade e isenção da taxa de anuidade, além de contar com diversos benefícios. Confira como adquirir!','Bradesco lança novo cartão com possibilidade de isenção da anuidade');
+
 INSERT INTO comments(author, content, post_id) VALUES ('James Brown','My 22 year old son rates this spaces very sublime, friend.',1);
 INSERT INTO comments(author, content, post_id) VALUES ('Michael Douglas','Super excellent shot m8, .',1);
 INSERT INTO comments(author, content, post_id) VALUES ('Elvira','I approve your notification!!',2);
 INSERT INTO comments(author, content, post_id) VALUES ('Raj','Wow love it!, friend.',2);
 INSERT INTO comments(author, content, post_id) VALUES ('Travis','Mission accomplished. Its incredible.',2);
 INSERT INTO comments(author, content, post_id) VALUES ('Ozzy','My 22 year old son rates this spaces very sublime, friend.',3);
+
+INSERT INTO users(active, email, password, verifier_code) VALUES (1,'teste@teste.com', '$2y$12$1J00EV8D4pcsCbgsnlGHEOV2Xn4ZuUpXSh8Ufe9uPL3cFRePffEoe','123456' );
