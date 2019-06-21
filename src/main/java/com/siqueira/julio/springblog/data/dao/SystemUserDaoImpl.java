@@ -1,17 +1,12 @@
 package com.siqueira.julio.springblog.data.dao;
 
-import com.siqueira.julio.springblog.data.entities.Post;
 import com.siqueira.julio.springblog.data.entities.SystemUser;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-import javax.persistence.TypedQuery;
 import java.util.List;
 
-class SystemUserDaoImpl extends AbstractDao<SystemUser, Long> implements SystemUserDao{
-    //    public SystemUser findByEmail(String email){
-//
-//    }
+@Repository
+public class SystemUserDaoImpl extends AbstractDao<SystemUser, Long> implements SystemUserDao{
 
     @Override
     public SystemUser findByEmail(String email){
