@@ -22,10 +22,4 @@ public class SitePostController {
     public ResponseEntity find(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
-
-    @GetMapping("/login")
-    @ResponseBody
-    public String login() {
-        return "login.html";
-    }
 }
