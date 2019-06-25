@@ -1,6 +1,6 @@
-package com.siqueira.julio.springblog.dao;
+package com.siqueira.julio.springblog.data.dao;
 
-import com.siqueira.julio.springblog.entities.Post;
+import com.siqueira.julio.springblog.data.entities.Post;
 import org.springframework.stereotype.Repository;
 
 @Repository

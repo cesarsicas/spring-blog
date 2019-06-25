@@ -1,4 +1,4 @@
-package com.siqueira.julio.springblog.dao;
+package com.siqueira.julio.springblog.data.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +14,7 @@ public abstract class AbstractDao<T, PK extends Serializable> {
             (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
     @PersistenceContext
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 
     protected EntityManager getEntityManager() {
         return entityManager;

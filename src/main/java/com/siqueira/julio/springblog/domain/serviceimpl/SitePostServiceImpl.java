@@ -1,7 +1,8 @@
-package com.siqueira.julio.springblog.service;
+package com.siqueira.julio.springblog.domain.serviceimpl;
 
-import com.siqueira.julio.springblog.dao.PostDao;
-import com.siqueira.julio.springblog.entities.Post;
+import com.siqueira.julio.springblog.data.dao.PostDao;
+import com.siqueira.julio.springblog.data.entities.Post;
+import com.siqueira.julio.springblog.domain.service.SitePostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,25 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service @Transactional(readOnly = false)
-public class PostServiceImpl implements PostService{
+public class SitePostServiceImpl implements SitePostService {
 
     @Autowired
     private PostDao dao;
-
-    @Override
-    public void save(Post post) {
-        dao.save(post);
-    }
-
-    @Override
-    public void update(Post post) {
-        dao.update(post);
-    }
-
-    @Override
-    public void delete(Long id) {
-        dao.delete(id);
-    }
 
     @Override @Transactional(readOnly = true)
     public Post findById(Long id) {

@@ -1,4 +1,4 @@
-package com.siqueira.julio.springblog.entities;
+package com.siqueira.julio.springblog.data.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;

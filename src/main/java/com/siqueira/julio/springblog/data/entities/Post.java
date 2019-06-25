@@ -1,8 +1,5 @@
-package com.siqueira.julio.springblog.entities;
+package com.siqueira.julio.springblog.data.entities;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
